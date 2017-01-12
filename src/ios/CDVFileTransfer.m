@@ -715,11 +715,11 @@ static CFIndex WriteDataToStream(NSData* data, CFWriteStreamRef stream)
         self.responseCode = (int)[httpResponse statusCode];
         self.bytesExpected = [response expectedContentLength];
         self.responseHeaders = [httpResponse allHeaderFields];
-        if ((self.direction == CDV_TRANSFER_DOWNLOAD) && (self.responseCode == 200) && (self.bytesExpected == NSURLResponseUnknownLength)) {
+        /*if ((self.direction == CDV_TRANSFER_DOWNLOAD) && (self.responseCode == 200) && (self.bytesExpected == NSURLResponseUnknownLength)) {
             // Kick off HEAD request to server to get real length
             // bytesExpected will be updated when that response is returned
             self.entityLengthRequest = [[CDVFileTransferEntityLengthRequest alloc] initWithOriginalRequest:connection.currentRequest andDelegate:self];
-        }
+        }*/
     } else if ([response.URL isFileURL]) {
         NSDictionary* attr = [[NSFileManager defaultManager] attributesOfItemAtPath:[response.URL path] error:nil];
         self.responseCode = 200;
